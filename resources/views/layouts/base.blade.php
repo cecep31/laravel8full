@@ -9,7 +9,7 @@
 </head>
 <body>
     @include('partials.navbar')
-    <div class="container-md mx-auto px-16 mt-8">
+    <div class="container-md mx-auto px-16 mt-4">
         @yield('content')
     </div>
 
