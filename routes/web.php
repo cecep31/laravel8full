@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Models\Label;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -31,11 +32,11 @@ Route::get('/about', function () {
 
 Route::get('/blog', [PostController::class, 'index']);
 
-Route::get('post/{slug}', function ($slug) {
-    $post = Post::find($slug);
-    return view("post",[
-        "title" => "blog",
-        "active" => "blog",
-        "post" => $post
+Route::get('post/{post:slug}', [PostController::class, 'show']);
+Route::get('users/class/{label:slug}', function (Label $label) {
+    return view('label',[
+        'title'=>$label->name,
+        'post' => $label->posts,
     ]);
 });
+
