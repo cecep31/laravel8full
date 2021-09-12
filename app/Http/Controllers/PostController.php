@@ -9,8 +9,8 @@ class PostController extends Controller
 {
     public function index()
     {
-
-        $post = Post::latest()->get();
+        //agar ngak n+1 atau query berulang pake with trus kasih(eager)
+        $post = Post::with(['user','label'])->latest()->get();
         return view('posts', [
             "title" => "blog",
             "active" => "blog",

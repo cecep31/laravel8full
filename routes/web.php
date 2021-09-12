@@ -43,6 +43,8 @@ Route::get('blog/class', function () {
 });
 
 Route::get('post/class/{label:slug}', function (Label $label) {
+    //pake load juga bisa n+1
+    $label->load('post');
     return view('label',[
         'title'=>$label->name,
         'active'=>'blog',
