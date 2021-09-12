@@ -15,6 +15,11 @@ class Post extends Model
     protected $guarded = ['id'];
     public function label()
     {
+        //ke satu relashionship
         return $this->belongsTo(Label::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

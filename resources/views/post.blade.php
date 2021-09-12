@@ -5,7 +5,7 @@
         <div class="flex justify-center">
             <h1 class="text-xl font-bold">{{ $post->title }}</h1>
         </div>
-        <p>ny cecep <a class="bold" href="/post/{{$post->label->slug}}">{{$post->label->name}}</a></p>
+        <p>by <a class="text-blue-500" href="#">{{$post->user->name}}</a> <a class="bold" href="/post/class/{{$post->label->slug}}">{{$post->label->name}}</a></p>
 
         {!! $post->body !!}
         <br>

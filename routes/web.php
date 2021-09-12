@@ -33,10 +33,21 @@ Route::get('/about', function () {
 Route::get('/blog', [PostController::class, 'index']);
 
 Route::get('post/{post:slug}', [PostController::class, 'show']);
-Route::get('users/class/{label:slug}', function (Label $label) {
+
+Route::get('blog/class', function () {
+    return view('labels',[
+        'title'=>"class",
+        'active'=>'blog',
+        'label' =>Label::all()
+    ]);
+});
+
+Route::get('post/class/{label:slug}', function (Label $label) {
     return view('label',[
         'title'=>$label->name,
-        'post' => $label->posts,
+        'active'=>'blog',
+        'label' =>$label,
+        'post' => $label->post,
     ]);
 });
 
