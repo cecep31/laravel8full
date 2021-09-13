@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         Label::create([
-            'name' => 'python',
+            'name' => 'java',
             'slug' => '1'
         ]);
         Label::create([
