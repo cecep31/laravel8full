@@ -23,11 +23,11 @@
             <div
                 class="flex flex-col text-gray-600 capitalize dark:text-gray-300 md:flex md:px-16 md:-mx-4 md:flex-row md:items-center">
                 <a href="/"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'home' ? 'text-blue-600' : '' }}">Home</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'home') ? 'text-blue-600' : '' }}">Home</a>
                 <a href="/blog"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'blog' ? 'text-blue-600' : '' }}">Blog</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'blog') ? 'text-blue-600' : '' }}">Blog</a>
                 <a href="/about"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'about' ? 'text-blue-600' : '' }}">About</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'about') ? 'text-blue-600' : '' }}">About</a>
 
 
                 <div class="relative mt-4 md:mt-0 md:mx-4">

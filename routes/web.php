@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PostController;
 use App\Models\Label;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,3 +53,5 @@ Route::get('post/class/{label:slug}', function (Label $label) {
     ]);
 });
 
+Route::get('login', [AuthController::class,'login']);
+Route::get('register', [AuthController::class,'register']);

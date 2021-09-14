@@ -19,7 +19,7 @@ class PostController extends Controller
         return view('posts', [
             "title" => "blog",
             "active" => "blog",
-            "post" => $post->get()
+            "post" => $post->paginate(7)
         ]);
     }
     public function show(Post $post)
