@@ -74,6 +74,7 @@
                     </path>
                 </svg>
             </a>
+            <a class="ml-6" href="/login">Login</a>
         </div>
     </div>
 </nav>

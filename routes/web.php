@@ -55,3 +55,4 @@ Route::get('post/class/{label:slug}', function (Label $label) {
 
 Route::get('login', [AuthController::class,'login']);
 Route::get('register', [AuthController::class,'register']);
+Route::post('register', [AuthController::class,'store']);
