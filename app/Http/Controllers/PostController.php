@@ -11,11 +11,15 @@ class PostController extends Controller
     {
         // dd(request('keyword'));
         //agar ngak n+1 atau query berulang pake with trus kasih(eager)
-        $post = Post::with(['user','label'])->latest()->get();
+        $post = Post::latest();
+
+        if(request('find')){
+            $post->where('title','like','%'.request('find').'%')->orwhere('body','like','%'.request('find').'%');
+        }
         return view('posts', [
             "title" => "blog",
             "active" => "blog",
-            "post" => $post
+            "post" => $post->get()
         ]);
     }
     public function show(Post $post)

@@ -9,10 +9,10 @@
         <span class="text-4xl font-bold">Blog</span>
         <div class="bg-white p-2 w-96 rounded-md">
 
-            <form action="/posts" method="get">
+            <form action="/blog" method="get">
             <div class="mt-5 mb-2 border-2 py-1 px-3 flex justify-between rounde-md rounded-md">
-                    <input class="flex-grow outline-none" name="keyword" text-gray-600 focus:text-blue-600" type="text"
-                    placeholder="Search Postingan..." />
+                    <input class="flex-grow outline-none" name="find" text-gray-600 focus:text-blue-600" type="text"
+                    placeholder="Search Postingan..." value="{{request('find')}}" />
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg"
                         class="h-6 w-6 text-gray-400 hover:text-blue-400 transition duration-100 cursor-pointer" fill="none"
@@ -32,7 +32,7 @@
                 <div class="flex flex-col w-full object-cover h-6/6 justify-items-start border rounded-lg overflow-hidden"
                     style="min-heigth:320px">
                     <img class="w-full h-full object-cover"
-                        src='https://source.unsplash.com/400x150/?{{ $post[0]->label->name }}' alt='nike shoes'>
+                        src='https://source.unsplash.com/400x150/?{{ $post[0]->label->name }}' alt='{{ $post[0]->label->name }}'>
                 </div>
             </div>
             <div class="flex flex-col">
@@ -78,12 +78,6 @@
     </div>
 
 
-    <div class="mb-4 border bottom-4 p-3 rounded-md shadow-sm bg-blue-100">
-        <a href="/post/{{ $item->slug }}"><span
-                class=" text-xl font-bold hover:text-red-400">{{ $item->title }}</span></a>
-        <h2 class="my-2">By : {{ $item->user->name }}</h2>
-        <small>{{ $item->created_at->diffForHumans() }}</small>
-        <p>{{ $item->body }}</p>
-    </div>
+
 
 @endsection
