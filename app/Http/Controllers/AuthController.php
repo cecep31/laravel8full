@@ -39,4 +39,11 @@ class AuthController extends Controller
 
         return redirect('/login')->with('success', 'Registration success, pleas login!!');
     }
+    public function authenticate(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+    }
 }
