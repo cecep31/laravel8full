@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PostController;
 use App\Models\Label;
 use Illuminate\Support\Facades\Route;
@@ -53,7 +54,9 @@ Route::get('post/class/{label:slug}', function (Label $label) {
     ]);
 });
 
-Route::get('login', [AuthController::class,'login']);
-Route::get('register', [AuthController::class,'register']);
+Route::get('login', [AuthController::class,'login'])->name('login')->middleware('guest');
+Route::get('register', [AuthController::class,'register'])->middleware('guest');
 Route::post('register', [AuthController::class,'store']);
-Route::post('register', [AuthController::class,'authenticate']);
+Route::post('login', [AuthController::class,'authenticate']);
+Route::post('logout', [AuthController::class,'logout']);
+Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth');

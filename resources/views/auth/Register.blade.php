@@ -3,7 +3,7 @@
 
 
 
-    <form class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md" action="/register" method="POST">
+    <form class="p-10 bg-white rounded flex justify-center items-center flex-col" action="/register" method="POST">
         @csrf
         <p class="mb-5 text-3xl uppercase text-gray-600">Registrasi</p>
         <input type="text" name="name"

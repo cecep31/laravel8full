@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-    @if (session('success'))
+    @if (session()->has('success'))
         <div class="flex items-center justify-center" id="alert">
             <div class="w-full mx-auto">
                 <!-- Title -->
@@ -14,7 +14,7 @@
                             d="M12,0A12,12,0,1,0,24,12,12.014,12.014,0,0,0,12,0Zm6.927,8.2-6.845,9.289a1.011,1.011,0,0,1-1.43.188L5.764,13.769a1,1,0,1,1,1.25-1.562l4.076,3.261,6.227-8.451A1,1,0,1,1,18.927,8.2Z">
                         </path>
                     </svg>
-                    <span class="text-green-800"> Your account has been saved. </span>
+                    <span class="text-green-800">{{session('success')}}</span>
                 </div>
                 <!-- End Alert Success -->
 
@@ -55,7 +55,7 @@
             </div>
         </div>
     @endif
-    <form class="p-5 bg-white rounded flex justify-center items-center flex-col shadow-md" action="/login" method="POST">
+    <form class="p-5 bg-white rounded flex justify-center items-center flex-col" action="/login" method="POST">
         @csrf
         <svg xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 text-gray-600 mb-2" viewbox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd"
