@@ -23,11 +23,11 @@
             <div
                 class="flex flex-col text-gray-600 capitalize dark:text-gray-300 md:flex md:px-16 md:-mx-4 md:flex-row md:items-center">
                 <a href="/"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'home') ? 'text-blue-600' : '' }}">Home</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'home' ? 'text-blue-600' : '' }}">Home</a>
                 <a href="/blog"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'blog') ? 'text-blue-600' : '' }}">Blog</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'blog' ? 'text-blue-600' : '' }}">Blog</a>
                 <a href="/about"
-                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ ($active === 'about') ? 'text-blue-600' : '' }}">About</a>
+                    class="mt-2 md:mt-0 md:mx-4 hover:text-gray-800 dark:hover:text-gray-200 {{ $active === 'about' ? 'text-blue-600' : '' }}">About</a>
 
 
                 <div class="relative mt-4 md:mt-0 md:mx-4">
@@ -66,7 +66,8 @@
                 </svg>
             </a>
 
-            <a href="https://github.com/cecep31/laravel8full" class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
+            <a href="https://github.com/cecep31/laravel8full"
+                class="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300"
                 aria-label="Github">
                 <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -75,15 +76,69 @@
                 </svg>
             </a>
             @auth
-            <a href="/dashboard" class="mr-3 hover:text-purple-400">Console</a>
-                <a href="#">{{auth()->user()->username}}</a>
-                <form action="/logout" method="POST">
-                    @csrf
-                    <button type="submit"><svg class="ml-2 hover:bg-gray-200 rounded-md" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M17,8l-1.41,1.41L17.17,11H9v2h8.17l-1.58,1.58L17,16l4-4L17,8z M5,5h7V3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h7v-2H5V5z"/></g></svg></button>
-                </form>
-            @else
-                <a class="ml-6" href="/login">Login</a>
+                <a href="/dashboard" class="mr-3 hover:text-purple-400">Console</a>
+                <div>
+                    <button id="showdrop" type="button"
+                        class="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+                        id="menu-button" aria-expanded="true" aria-haspopup="true">
+                        {{ auth()->user()->username }}
+                        <!-- Heroicon name: solid/chevron-down -->
+                        <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            fill="currentColor" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!--
+                                    Dropdown menu, show/hide based on menu state.
+
+                                    Entering: "transition ease-out duration-100"
+                                      From: "transform opacity-0 scale-95"
+                                      To: "transform opacity-100 scale-100"
+                                    Leaving: "transition ease-in duration-75"
+                                      From: "transform opacity-100 scale-100"
+                                      To: "transform opacity-0 scale-95"
+                                  -->
+                <div id="drop"
+                    class="origin-top-right absolute right-0 mt-9 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                    <div class="py-1" role="none">
+                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                            id="menu-item-0">Account settings</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                            id="menu-item-1">Support</a>
+                        <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+                            id="menu-item-2">License</a>
+                        <form method="POST" action="/logout" role="none">
+                            @csrf
+                            <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm"
+                                role="menuitem" tabindex="-1" id="menu-item-3">
+                                Sign out
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        @else
+            <a class="ml-6" href="/login">Login</a>
+            <div class="relative inline-block text-left">
+
             @endauth
+            <!-- This example requires Tailwind CSS v2.0+ -->
+
+
         </div>
     </div>
 </nav>
+<script>
+    $(document).ready(function() {
+        $("#drop").hide();
+        $("#showdrop,#drop").hover(function() {
+            $("#drop").toggle();
+        });
+    });
+</script>
