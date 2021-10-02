@@ -51,7 +51,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
         }
-        return back()->with('loginerror', 'login failed!');
+        return back()->withErrors('loginerror', 'login failed!');
     }
     public function logout(Request $request)
     {
