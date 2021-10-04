@@ -5,201 +5,441 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <title>Tailwind Admin Starter Template : Tailwiand Toolbox</title>
+    <meta name="author" content="name">
+    <meta name="description" content="description here">
+    <meta name="keywords" content="keywords,here">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet"> <!--Replace with your tailwind.css once created-->
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
 
 </head>
 
-<body>
-    <!-- This example requires Tailwind CSS v2.0+ -->
-    <nav class="bg-gray-800">
-        <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
-            <div class="relative flex items-center justify-between h-16">
-                <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                    <!-- Mobile menu button-->
-                    <button type="button"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <!--
-              Icon when menu is closed.
 
-              Heroicon name: outline/menu
+<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
 
-              Menu open: "hidden", Menu closed: "block"
-            -->
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
+    <!--Nav-->
+    <nav class="bg-gray-800 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+
+        <div class="flex flex-wrap items-center">
+            <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
+                <a href="#">
+                    <span class="text-xl pl-2"><i class="em em-grinning"></i></span>
+                </a>
+            </div>
+
+            <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
+                <span class="relative w-full">
+                    <input type="search" placeholder="Search" class="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal">
+                    <div class="absolute search-icon" style="top: 1rem; left: .8rem;">
+                        <svg class="fill-current pointer-events-none text-white w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                            <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
                         </svg>
-                        <!--
-              Icon when menu is open.
-
-              Heroicon name: outline/x
-
-              Menu open: "block", Menu closed: "hidden"
-            -->
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="flex-shrink-0 flex items-center">
-                        <img class="block lg:hidden h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
-                        <img class="hidden lg:block h-8 w-auto"
-                            src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
-                            alt="Workflow">
                     </div>
-                    <div class="hidden sm:block sm:ml-6">
-                        <div class="flex space-x-4">
-                            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                aria-current="page">Dashboard</a>
+                </span>
+            </div>
 
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-
-                            <a href="#"
-                                class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+            <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
+                <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+                    <li class="flex-1 md:flex-none md:mr-3">
+                        <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                    </li>
+                    <li class="flex-1 md:flex-none md:mr-3">
+                        <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+                    </li>
+                    <li class="flex-1 md:flex-none md:mr-3">
+                        <div class="relative inline-block">
+                            <button onclick="toggleDD('myDropdown')" class="drop-button text-white focus:outline-none"> <span class="pr-2"><i class="em em-robot_face"></i></span> Hi, User <svg class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg></button>
+                            <div id="myDropdown" class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
+                                <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.." id="myInput" onkeyup="filterDD('myDropdown','myInput')">
+                                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Profile</a>
+                                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                                <div class="border border-gray-800"></div>
+                                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                    <button type="button"
-                        class="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                        <span class="sr-only">View notifications</span>
-                        <!-- Heroicon name: outline/bell -->
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                    </button>
-
-                    <!-- Profile dropdown -->
-                    <div class="ml-3 relative">
-                        <div>
-                            <button type="button"
-                                class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                                <span class="sr-only">Open user menu</span>
-                                <img class="h-8 w-8 rounded-full"
-                                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                                    alt="">
-                            </button>
-                        </div>
-
-                        <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-                        <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
-                            role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                            <!-- Active: "bg-gray-100", Not Active: "" -->
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-0">Your Profile</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-1">Settings</a>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
-                                id="user-menu-item-2">Sign out</a>
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                    aria-current="page">Dashboard</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-
-                <a href="#"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
-            </div>
-        </div>
     </nav>
-    <div class="h-screen w-48 px-4 border-r shadow-2xl">
-        <div class="h-3/4 flex flex-col text-gray-500">
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path
-                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Home</a>
-            </h3>
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path
-                        d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Dashboard</a>
-            </h3>
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
-                    <path
-                        d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Comments</a>
-            </h3>
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path fill-rule="evenodd"
-                        d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
-                        clip-rule="evenodd" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Inbox</a>
-            </h3>
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                        clip-rule="evenodd" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Profile</a>
-            </h3>
-            <h3
-                class="pl-1 text-sm flex items-center py-2 mb-2 hover:bg-gray-100 hover:text-gray-700 transition duration-200 ease-in">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="black">
-                    <path fill-rule="evenodd"
-                        d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                        clip-rule="evenodd" />
-                </svg>
-                <a class="hover:text-black transition duration-200 ease-linear" href="#">Settings</a>
-            </h3>
+
+
+    <div class="flex flex-col md:flex-row">
+
+        <div class="bg-gray-800 shadow-xl h-16 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48">
+
+            <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
+                <ul class="list-reset flex flex-row md:flex-col py-0 md:py-3 px-1 md:px-2 text-center md:text-left">
+                    <li class="mr-3 flex-1">
+                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-pink-500">
+                            <i class="fas fa-tasks pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Tasks</span>
+                        </a>
+                    </li>
+                    <li class="mr-3 flex-1">
+                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-purple-500">
+                            <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Messages</span>
+                        </a>
+                    </li>
+                    <li class="mr-3 flex-1">
+                        <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-blue-600">
+                            <i class="fas fa-chart-area pr-0 md:pr-3 text-blue-600"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Analytics</span>
+                        </a>
+                    </li>
+                    <li class="mr-3 flex-1">
+                        <a href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-red-500">
+                            <i class="fa fa-wallet pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Payments</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+
+            <div class="bg-gray-800 pt-3">
+                <div class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                    <h3 class="font-bold pl-2">Analytics</h3>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-green-200 to-green-100 border-b-4 border-green-600 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-green-600"><i class="fa fa-wallet fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">Total Revenue</h5>
+                                <h3 class="font-bold text-3xl">$3249 <span class="text-green-500"><i class="fas fa-caret-up"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-pink-200 to-pink-100 border-b-4 border-pink-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-pink-600"><i class="fas fa-users fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">Total Users</h5>
+                                <h3 class="font-bold text-3xl">249 <span class="text-pink-500"><i class="fas fa-exchange-alt"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-yellow-200 to-yellow-100 border-b-4 border-yellow-600 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-yellow-600"><i class="fas fa-user-plus fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">New Users</h5>
+                                <h3 class="font-bold text-3xl">2 <span class="text-yellow-600"><i class="fas fa-caret-up"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-blue-200 to-blue-100 border-b-4 border-blue-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-blue-600"><i class="fas fa-server fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">Server Uptime</h5>
+                                <h3 class="font-bold text-3xl">152 days</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-indigo-200 to-indigo-100 border-b-4 border-indigo-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-indigo-600"><i class="fas fa-tasks fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">To Do List</h5>
+                                <h3 class="font-bold text-3xl">7 tasks</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Metric Card-->
+                    <div class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500 rounded-lg shadow-xl p-5">
+                        <div class="flex flex-row items-center">
+                            <div class="flex-shrink pr-4">
+                                <div class="rounded-full p-5 bg-red-600"><i class="fas fa-inbox fa-2x fa-inverse"></i></div>
+                            </div>
+                            <div class="flex-1 text-right md:text-center">
+                                <h5 class="font-bold uppercase text-gray-600">Issues</h5>
+                                <h3 class="font-bold text-3xl">3 <span class="text-red-500"><i class="fas fa-caret-up"></i></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Metric Card-->
+                </div>
+            </div>
+
+
+            <div class="flex flex-row flex-wrap flex-grow mt-2">
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Graph Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+                            <script>
+                                new Chart(document.getElementById("chartjs-7"), {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["January", "February", "March", "April"],
+                                        "datasets": [{
+                                            "label": "Page Impressions",
+                                            "data": [10, 20, 30, 40],
+                                            "borderColor": "rgb(255, 99, 132)",
+                                            "backgroundColor": "rgba(255, 99, 132, 0.2)"
+                                        }, {
+                                            "label": "Adsense Clicks",
+                                            "data": [5, 15, 10, 30],
+                                            "type": "line",
+                                            "fill": false,
+                                            "borderColor": "rgb(54, 162, 235)"
+                                        }]
+                                    },
+                                    "options": {
+                                        "scales": {
+                                            "yAxes": [{
+                                                "ticks": {
+                                                    "beginAtZero": true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Graph Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
+                            <script>
+                                new Chart(document.getElementById("chartjs-0"), {
+                                    "type": "line",
+                                    "data": {
+                                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
+                                        "datasets": [{
+                                            "label": "Views",
+                                            "data": [65, 59, 80, 81, 56, 55, 40],
+                                            "fill": false,
+                                            "borderColor": "rgb(75, 192, 192)",
+                                            "lineTension": 0.1
+                                        }]
+                                    },
+                                    "options": {}
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Graph Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
+                            <script>
+                                new Chart(document.getElementById("chartjs-1"), {
+                                    "type": "bar",
+                                    "data": {
+                                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
+                                        "datasets": [{
+                                            "label": "Likes",
+                                            "data": [65, 59, 80, 81, 56, 55, 40],
+                                            "fill": false,
+                                            "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                                            "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                                            "borderWidth": 1
+                                        }]
+                                    },
+                                    "options": {
+                                        "scales": {
+                                            "yAxes": [{
+                                                "ticks": {
+                                                    "beginAtZero": true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Graph Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>
+                            <script>
+                                new Chart(document.getElementById("chartjs-4"), {
+                                    "type": "doughnut",
+                                    "data": {
+                                        "labels": ["P1", "P2", "P3"],
+                                        "datasets": [{
+                                            "label": "Issues",
+                                            "data": [300, 50, 100],
+                                            "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
+                                        }]
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                    <!--/Graph Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Table Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                        </div>
+                        <div class="p-5">
+                            <table class="w-full p-5 text-gray-700">
+                                <thead>
+                                    <tr>
+                                        <th class="text-left text-blue-900">Name</th>
+                                        <th class="text-left text-blue-900">Side</th>
+                                        <th class="text-left text-blue-900">Role</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr>
+                                        <td>Obi Wan Kenobi</td>
+                                        <td>Light</td>
+                                        <td>Jedi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Greedo</td>
+                                        <td>South</td>
+                                        <td>Scumbag</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Darth Vader</td>
+                                        <td>Dark</td>
+                                        <td>Sith</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <p class="py-2"><a href="#">See More issues...</a></p>
+
+                        </div>
+                    </div>
+                    <!--/table Card-->
+                </div>
+
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <!--Advert Card-->
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                            <h5 class="font-bold uppercase text-gray-600">Advert</h5>
+                        </div>
+                        <div class="p-5 text-center">
+
+
+                            <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D52JJ&placement=wwwtailwindtoolboxcom" id="_carbonads_js"></script>
+
+
+                        </div>
+                    </div>
+                    <!--/Advert Card-->
+                </div>
+
+
+            </div>
         </div>
     </div>
+
+
+
+
+    <script>
+        /*Toggle dropdown list*/
+        function toggleDD(myDropMenu) {
+            document.getElementById(myDropMenu).classList.toggle("invisible");
+        }
+        /*Filter dropdown options*/
+        function filterDD(myDropMenu, myDropMenuSearch) {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById(myDropMenuSearch);
+            filter = input.value.toUpperCase();
+            div = document.getElementById(myDropMenu);
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.drop-button') && !event.target.matches('.drop-search')) {
+                var dropdowns = document.getElementsByClassName("dropdownlist");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (!openDropdown.classList.contains('invisible')) {
+                        openDropdown.classList.add('invisible');
+                    }
+                }
+            }
+        }
+    </script>
+
 
 </body>
 
