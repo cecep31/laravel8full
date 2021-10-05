@@ -22,7 +22,7 @@ Route::get('/', function () {
         'title' => "home",
         "active" => "home"
     ]);
-});
+})->name('home');
 
 Route::get('/about', function () {
     return view('about', [
@@ -60,6 +60,7 @@ Route::post('register', [AuthController::class, 'store']);
 Route::post('login', [AuthController::class, 'authenticate']);
 Route::post('logout', [AuthController::class, 'logout']);
 Route::get('dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.post.postshow');
 })->middleware('auth');
 Route::post('logout', [AuthController::class, 'logout']);
+Route::get('dashboard/addpost', [PostController::class, 'addpostui']);

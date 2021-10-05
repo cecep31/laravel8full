@@ -1,6 +1,15 @@
 @extends('dashboard.layouts.base')
 
 @section('content')
+    <div class="font-bold text-2xl flex p-2 justify-between mx-4">
+        <div>Post</div>
+        <a class="text-green-700 hover:text-white flex border bottom-6 rounded-md border-blue-900 p-1 bg-black"
+            href="{{ url('/dashboard/addpost', []) }}">Tambah <svg xmlns="http://www.w3.org/2000/svg" class="self-center h-6 w-6" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg></a>
+    </div>
     <div class="flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
